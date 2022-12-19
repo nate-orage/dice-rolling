@@ -1,33 +1,23 @@
 #!/home/nate/python/python_env/bin/python3
 import random
 
-name = input(f"What" "s your name?\n")
+name = input("What's your name?\n")
 welcome = f"Hello, {name}!\n\nWelcome to Dice Rolling.\nYou will be rolling two six-sided dice."
-die_6_1 = [1, 2, 3, 4, 5, 6]
-die_6_2 = [1, 2, 3, 4, 5, 6]
-
 
 def six_sided_2_dice():
     while True:
-        quit = ["quit", "Quit"]
-        x = ""
         x = input(f'\nPress Enter to roll your dice. Type "quit" to quit.\n')
-        random.shuffle(die_6_1)
-        random.shuffle(die_6_2)
-        game_over = (
-            f"\nYou rolled {die_6_1[-3]} and {die_6_2[-3]}.\n\nSeven out. Game over.\n"
-        )
-        normal_outcome = f"\nYou rolled\n\n {die_6_1[-3]} and {die_6_2[-3]}.\n"
-        if x in quit:
+        if x.lower() == "quit":
             break
-        print(die_6_1)
-        print(die_6_2)
-        if (die_6_1[-3] + die_6_2[-3]) == 7:
-            print(game_over)
+
+        die_1 = random.randint(1, 6)
+        die_2 = random.randint(1, 6)
+
+        if (die_1 + die_2) == 7:
+            print(f"\nYou rolled {die_1} and {die_2}.\n\nSeven out. Game over.\n")
             break
         else:
-            print(normal_outcome)
-
+            print(f"\nYou rolled {die_1} and {die_2}.\n")
 
 print(welcome)
 six_sided_2_dice()
